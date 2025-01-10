@@ -15,12 +15,12 @@
       </header>
   
       <!-- Carrousel -->
-      <v-carousel 
+      <v-carousel
         v-model="currentSlide" 
         hide-delimiters 
         height="300"
       >
-        <v-carousel-item v-for="(item, index) in items" :key="index">
+        <v-carousel-item v-for="(item, index) in items" :key="index" v-show="index === currentSlide">
           <div class="carousel-content">
             <h1>{{ item.title }}</h1>
             <aside>{{ item.description }}</aside>
@@ -32,10 +32,10 @@
   
   <script>
   export default {
-    name: 'HomeView', // Nom du composant
+    name: 'HomeView', 
     data() {
       return {
-        currentSlide: 0, // Gère l'élément actif du carrousel
+        currentSlide: 0, 
         items: [
           { title: "ENTRAINEZ VOUS", description: "Commencez des séances sur-mesure, conçues par des experts et boostées par l’IA, pour atteindre vos objectifs." },
           { title: "PROGRESSEZ", description: "Avancez à votre rythme grâce à des séances adaptées à votre état de forme, vos performances et vos feedbacks." },
