@@ -22,6 +22,7 @@
           </div>
         </v-carousel-item>
       </v-carousel>
+
       <v-bottom-navigation class="navigation">
       <div class="login"> 
       <v-btn class="inscription inscription-btn">
@@ -32,6 +33,7 @@
       </v-btn>
     </div> 
       </v-bottom-navigation>
+      
      <footer>
       <div>
         <hr class="line-footer-black">
@@ -68,7 +70,7 @@
   <style scoped>
   .arrow-left {
   position: absolute;
-  top: 20px;
+  top: 58px;
   left: 10px;
   transform: translateY(-50%);
   z-index: 10;
@@ -76,13 +78,22 @@
 }
 .arrow-right {
   position: absolute;
-  top: 20px;
+  top: 58px;
   right: 10px;
   transform: translateY(-50%);
   z-index: 10;
   cursor: pointer;
 }
-  
+  h1{
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 41px;
+   
+  }
+  aside{
+      font-weight: 400;
+      line-height: 28px;
+    }
   .container-home{
     display: flex;
     flex-direction: column;
