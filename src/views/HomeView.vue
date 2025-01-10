@@ -15,7 +15,7 @@
       <v-carousel-item v-for="(item, index) in items" :key="index" v-show="index === currentSlide" class="carousel-item">
         <div class="carousel-content">
           <h1>{{ item.title }}</h1>
-          <aside>{{ item.description }}</aside>
+          <aside class="sous-title">{{ item.description }}</aside>
         </div>
       </v-carousel-item>
     </v-carousel>
@@ -109,6 +109,7 @@ aside {
   align-items: center;
   height: 100%;
   text-align: center;
+  background-color: #F8F8F8;
 }
 
 .carousel {
@@ -129,8 +130,16 @@ aside {
 .carousel-item {
   height: 150px;
   margin-top: auto;
+  width: 80%;
+  display: flex;
+  margin: auto;
 }
-
+h1{
+  text-align: left;
+}
+.sous-title{
+  text-align: left;
+}
 .dynamic-lines {
   margin-top: 20px;
 }
