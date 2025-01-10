@@ -179,7 +179,7 @@ h1{
 }
 
 .inscription {
-  background-color: black;
+  background-color: #2B2B2B;
   color: #ffff;
   align-content: center;
 }

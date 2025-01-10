@@ -37,7 +37,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.showSplash = false; // Passer à la page d'accueil
-    }, 3000); // 3 secondes
+    }, 4000); // 3 secondes
   },
   components: {
     HomeView,
