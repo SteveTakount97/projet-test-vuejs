@@ -7,17 +7,19 @@
         <aside>votre coach numérique</aside>
       </header>
       <v-footer>
-        <v-row class="justify-center">
-          <v-col class="text-center">
-            <hr />
-          </v-col>
-        </v-row>
-      </v-footer>
+      <v-row class="justify-center">
+        <v-col class="text-center">
+          <!-- Style dynamique avec :class -->
+          <hr :class="{ 'line-footer-green': showSplash, 'line-footer-black': !showSplash }" />
+        </v-col>
+      </v-row>
+    </v-footer>
     </v-container>
 
     <!-- Page d'accueil -->
     <v-container v-else>
       <HomeView />
+      <Footer />
     </v-container>
 
 </template>
@@ -25,6 +27,7 @@
 
 <script>
 import HomeView from './views/HomeView.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   data() {
@@ -35,10 +38,11 @@ export default {
   mounted() {
     setTimeout(() => {
       this.showSplash = false; // Passer à la page d'accueil
-    }, 3000); //3 secondes
+    }, 3000); // 3 secondes
   },
   components: {
-    HomeView, // Enregistrement correct du composant
+    HomeView,
+    Footer, // Enregistrement correct du composant
   },
 };
 </script>

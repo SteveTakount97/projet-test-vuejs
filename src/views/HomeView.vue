@@ -49,7 +49,11 @@
   <style scoped>
   .carousel-content {
     text-align: center;
-    padding: 20px;
+    display: flex;
+    flex-direction:column; 
+    justify-content: center;
+    margin-top: auto;
+    height: 100%;
   }
   
   .dynamic-lines {
