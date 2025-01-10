@@ -6,6 +6,9 @@ import '@mdi/font/css/materialdesignicons.css'; // Fichier CSS des icônes
 
 
 const vuetify = createVuetify({
+  icons: {
+    defaultSet: 'mdi', // Définit le set d'icônes à MDI
+  },
   theme: {
     defaultTheme: 'light', 
   },

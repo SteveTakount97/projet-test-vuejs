@@ -1,19 +1,14 @@
 <template> 
     <v-container class="container-home">
       <header>
-        <!-- Lignes dynamiques -->
-        <v-row justify="center" class="dynamic-lines">
-          <v-col 
-            v-for="(item, index) in items" 
-            :key="index" 
-            cols="4"
-            :class="{ active: index === currentSlide }"
-          >
-            <div class="line"></div>
-          </v-col>
-        </v-row>
+        <!-- Flèches dynamiques -->
+      <v-btn icon @click="prevSlide" class="arrow-left " v-if="currentSlide > 0">
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+      <v-btn icon @click="nextSlide" class="arrow-right" v-if="currentSlide < items.length - 1">
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
       </header>
-  
       <!-- Carrousel -->
       <v-carousel class="carousel"
         v-model="currentSlide" 
@@ -29,10 +24,10 @@
       </v-carousel>
       <v-bottom-navigation class="navigation">
       <div class="login"> 
-      <v-btn class="inscription">
+      <v-btn class="inscription inscription-btn">
         <sapn>Inscrivez-vous</sapn>
       </v-btn>
-      <v-btn>
+      <v-btn class="inscription-btn">
         <sapn>Connectez-vous</sapn>
       </v-btn>
     </div> 
@@ -58,15 +53,36 @@
         ],
       };
     },
-    mounted() {
-    setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.items.length; // Passer à l'élément suivant
-    }, 3000); // Changement toutes les 3 secondes
+    methods: {
+    nextSlide() {
+      this.currentSlide = (this.currentSlide + 1) % this.items.length;
+    },
+    prevSlide() {
+      this.currentSlide =
+        (this.currentSlide - 1 + this.items.length) % this.items.length;
+    },
   },
   };
   </script>
   
   <style scoped>
+  .arrow-left {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+.arrow-right {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+  
   .container-home{
     display: flex;
     flex-direction: column;
@@ -97,11 +113,15 @@
   }
   
   .line {
+    display: block;
     height: 5px;
     width: 100%;
-    background-color: grey;
+    transition: background-color 0.3s ease;
   }
-  
+  .col{
+    height: 10px;
+    width: 100PX;
+  }
   .active .line {
     background-color: green; /* Couleur pour l'élément actif */
   }
@@ -126,7 +146,7 @@
     color: #ffff;  
     align-content: center;
   }
-  v-btn{
+  .inscription-btn{
     text-align: center;
     font-weight: 500;
     border-radius: 100px;
