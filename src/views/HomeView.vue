@@ -28,13 +28,14 @@
         </v-carousel-item>
       </v-carousel>
       <v-bottom-navigation class="navigation">
-      <v-btn>
+      <div class="login"> 
+      <v-btn class="inscription">
         <sapn>Inscrivez-vous</sapn>
       </v-btn>
       <v-btn>
         <sapn>Connectez-vous</sapn>
       </v-btn>
-    
+    </div> 
       </v-bottom-navigation>
      <footer>
       <div>
@@ -57,6 +58,11 @@
         ],
       };
     },
+    mounted() {
+    setInterval(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.items.length; // Passer à l'élément suivant
+    }, 3000); // Changement toutes les 3 secondes
+  },
   };
   </script>
   
@@ -69,7 +75,12 @@
     height: 100%; 
     text-align: center;
   }
-  
+  .carousel{
+    text-align: center;
+    display: flex;
+    flex-direction:column; 
+    justify-content: center;
+  }
   .carousel-content {
     text-align: center;
     display: flex;
@@ -78,7 +89,7 @@
     margin-top: auto;
   }
   .carousel-item{
-    height: 100px;
+    height: 150px;
     margin-top: auto;
   }
   .dynamic-lines {
@@ -95,11 +106,33 @@
     background-color: green; /* Couleur pour l'élément actif */
   }
   .navigation{
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 200px;
+    max-width: 760px;
+    width: 100%;
     margin: auto;
+  }
+  .login{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    top: 50px;
+  }
+  .inscription{
+    background-color: black;
+    color: #ffff;  
+    align-content: center;
+  }
+  v-btn{
+    text-align: center;
+    font-weight: 500;
+    border-radius: 100px;
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
   }
   </style>
   

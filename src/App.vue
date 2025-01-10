@@ -2,10 +2,10 @@
  
     <!-- Écran temporaire (Splash Screen) -->
     <v-container v-if="showSplash" class="container">
-      <header>
+      <main>
         <h1>ARSENE</h1>
         <aside>votre coach numérique</aside>
-      </header>
+      </main>
       <v-footer>
       <v-row class="justify-center">
         <v-col class="text-center">
