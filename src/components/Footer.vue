@@ -1,11 +1,9 @@
 <template>
    <v-footer>
-      <v-row class="justify-center">
-        <v-col class="text-center">
+       <div class="div-footer">
           <!-- Style dynamique avec :class -->
           <hr :class="{ 'line-footer-green': showSplash, 'line-footer-black': !showSplash }" />
-        </v-col>
-      </v-row>
+       </div>
     </v-footer>
 </template>
   
@@ -15,5 +13,7 @@
   };
 </script>
 
+<style scoped>
 
+</style>
  

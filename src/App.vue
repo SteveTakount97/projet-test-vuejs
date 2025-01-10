@@ -19,7 +19,6 @@
     <!-- Page d'accueil -->
     <v-container v-else>
       <HomeView />
-      <Footer />
     </v-container>
 
 </template>
@@ -47,6 +46,6 @@ export default {
 };
 </script>
 
-<style>
+<style >
  @import './assets/main.css';
 </style>

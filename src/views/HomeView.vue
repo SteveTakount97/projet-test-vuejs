@@ -1,5 +1,5 @@
 <template> 
-    <v-container>
+    <v-container class="container-home">
       <header>
         <!-- Lignes dynamiques -->
         <v-row justify="center" class="dynamic-lines">
@@ -15,18 +15,32 @@
       </header>
   
       <!-- Carrousel -->
-      <v-carousel
+      <v-carousel class="carousel"
         v-model="currentSlide" 
         hide-delimiters 
         height="300"
       >
-        <v-carousel-item v-for="(item, index) in items" :key="index" v-show="index === currentSlide">
+        <v-carousel-item v-for="(item, index) in items" :key="index" v-show="index === currentSlide" class="carousel-item">
           <div class="carousel-content">
             <h1>{{ item.title }}</h1>
             <aside>{{ item.description }}</aside>
           </div>
         </v-carousel-item>
       </v-carousel>
+      <v-bottom-navigation class="navigation">
+      <v-btn>
+        <sapn>Inscrivez-vous</sapn>
+      </v-btn>
+      <v-btn>
+        <sapn>Connectez-vous</sapn>
+      </v-btn>
+    
+      </v-bottom-navigation>
+     <footer>
+      <div>
+        <hr class="line-footer-black">
+      </div>
+     </footer>
     </v-container>
   </template>
   
@@ -47,15 +61,26 @@
   </script>
   
   <style scoped>
+  .container-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    text-align: center;
+  }
+  
   .carousel-content {
     text-align: center;
     display: flex;
     flex-direction:column; 
     justify-content: center;
     margin-top: auto;
-    height: 100%;
   }
-  
+  .carousel-item{
+    height: 100px;
+    margin-top: auto;
+  }
   .dynamic-lines {
     margin-top: 20px;
   }
@@ -68,6 +93,13 @@
   
   .active .line {
     background-color: green; /* Couleur pour l'élément actif */
+  }
+  .navigation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    margin: auto;
   }
   </style>
   
